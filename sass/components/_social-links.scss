@@ -1,6 +1,6 @@
 .social-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .social-list-link {
@@ -29,4 +29,7 @@
   .social-list-link:focus & {
     fill: #fff;
   }
+}
+.social-list-item:not(:last-child) {
+  margin-right: 10px;
 }

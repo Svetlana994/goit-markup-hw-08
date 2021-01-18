@@ -1,5 +1,8 @@
-.footer .container {
-  display: flex;
+.footer {
+  background-color: #2f303a;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
 }
 
 .logo-footer {
@@ -9,15 +12,13 @@
 .footer-logo-link {
   font-family: var(--secondary-font);
   font-weight: 700;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.19;
   letter-spacing: 0.03em;
-}
 
-.footer {
-  background-color: #2f303a;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    font-size: 26px;
+  }
 }
 
 .footer-list {
@@ -38,21 +39,25 @@
 }
 
 .footer-list-address {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 9px;
+  }
 }
 
 .footer-list-item {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 
   &:last-child {
-    margin-bottom: 0px;
+    margin-bottom: 60px;
   }
 }
 
 .footer-join-title,
 .footer-subscribe-title {
   margin-bottom: 20px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1.14;
   text-transform: uppercase;
   color: #fff;
@@ -61,12 +66,12 @@
 
 .footer-join-wrapper {
   width: 206px;
-  margin-right: 93px;
 }
 
-.footer-wrapper {
-  width: 231px;
-  margin-right: 70px;
+@media screen and (max-width: 767px) {
+  .footer-join-wrapper {
+    margin: 0 auto 60px;
+  }
 }
 
 .join-icon {
@@ -106,17 +111,10 @@
   padding: 10px 28px 10px 29px;
 }
 
-.footer-subscribe {
-  width: 570px;
-}
-.form-subscribe {
-  display: flex;
-}
-
 .footer-input {
-  width: 358px;
+  width: 100%;
   height: 50px;
-  margin-right: 12px;
+  margin-bottom: 20px;
   padding: 15px;
   background-color: transparent;
   border-radius: 4px;
@@ -136,4 +134,61 @@
   min-height: 24px;
   margin-left: 10px;
   fill: #fff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .footer-wrapper {
+    margin-right: 165px;
+  }
+
+  .footer-tablet {
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-subscribe {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer .container {
+    display: flex;
+  }
+
+  .footer-tablet {
+    display: flex;
+  }
+
+  .footer-wrapper {
+    width: 231px;
+    margin-right: 70px;
+  }
+
+  .footer-join-wrapper {
+    margin-right: 93px;
+  }
+
+  .footer-input {
+    width: 358px;
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
+
+  .form-subscribe {
+    display: flex;
+  }
+
+  .footer-wrapper,
+  .footer-subscribe-title,
+  .footer-join-title {
+    text-align: initial;
+  }
+
+  .footer-list-item:last-child {
+    margin-bottom: 0;
+  }
 }
