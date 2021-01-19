@@ -1,29 +1,33 @@
 .header {
   padding-top: 16px;
   padding-bottom: 16px;
-}
 
-.navigation,
-.address {
-  display: none;
+  @media screen and (min-width: 768px) {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 .header .logo {
-  margin-right: 93px;
   font-family: var(--secondary-font);
   font-weight: 700;
   font-size: 24px;
   line-height: 1.19;
   letter-spacing: 0.03em;
   color: #000000;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 26px;
+  }
 }
 
 .logo-accent {
   color: var(--accent-color);
-}
-
-.navigation-list-item:not(:last-child) {
-  margin-right: 50px;
 }
 
 .navigation-link,
@@ -43,63 +47,6 @@
 .header-contacts:focus {
   color: var(--accent-color);
 }
-
-@media screen and (min-width: 768px) {
-  .navigation,
-  .address {
-    display: block;
-  }
-
-  .header .container,
-  .navigation,
-  .navigation-list,
-  .address-list {
-    @include flex-center-vert;
-  }
-
-  .header .logo {
-    margin-right: 88px;
-  }
-
-  .navigation-list-item:last-child {
-    margin-right: 84px;
-  }
-
-  .address-list {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .address-contact:first-child {
-    margin-bottom: 10px;
-  }
-
-  .header-contacts {
-    font-size: 12px;
-  }
-}
-
-// .address {
-//   margin-left: auto;
-// }
-// .address-contact:first-child {
-//   margin-right: 50px;
-// }
-
-// .navigation-link {
-//   position: relative;
-// }
-
-// .current::after {
-//   position: absolute;
-//   left: 0;
-//   bottom: -31px;
-//   content: "";
-//   width: 100%;
-//   height: 4px;
-//   background-color: var(--accent-color);
-//   border-radius: 4px;
-// }
 
 .header-contacts {
   @include flex-center-vert;
@@ -122,10 +69,27 @@
 
 .menu-button {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0;
+  width: 40px;
+  height: 40px;
   border: none;
   background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  outline: none;
+
+  &:hover .icon-menu-container,
+  &:focus .icon-menu-container {
+    fill: var(--accent-color);
+  }
+}
+
+.icon-menu-container {
+  fill: var(--secondary-color);
+  transition: fill 250ms var(--timing-function);
 }
 
 .menu-button .icon-cross {
@@ -138,4 +102,151 @@
 
 .menu-button.is-open .icon-menu {
   display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .header .container {
+    @include flex-center-vert;
+    justify-content: space-between;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .menu-container {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    padding: 60px 60px;
+    border-top: 1px solid #ececec;
+  }
+
+  .navigation-list-item {
+    margin-bottom: 40px;
+  }
+
+  .navigation-list-item:last-child {
+    margin-bottom: 60px;
+  }
+
+  .header-contacts {
+    display: block;
+  }
+
+  .header-contacts:first-child {
+    margin-bottom: 16px;
+  }
+}
+
+.menu-container {
+  background-color: #fff;
+  text-align: center;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu-container {
+    display: flex;
+  }
+
+  .menu-button {
+    display: none;
+  }
+
+  .header .container,
+  .navigation,
+  .navigation-list {
+    @include flex-center-vert;
+  }
+
+  .header .logo {
+    margin-right: 88px;
+  }
+
+  .navigation-list-item {
+    margin-right: 50px;
+  }
+
+  .navigation-list-item:last-child {
+    margin-right: 84px;
+  }
+
+  .address-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .address-contact:first-child {
+    margin-bottom: 10px;
+  }
+
+  .header-contacts {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header .logo {
+    margin-right: 94px;
+  }
+
+  .address-list {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .address-contact:first-child {
+    margin-right: 30px;
+  }
+
+  .navigation-link {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .header-contacts {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .address-contact:first-child {
+    margin-bottom: 0;
+  }
+
+  .navigation-list-item:last-child {
+    margin-right: 302px;
+  }
+}
+
+.navigation-link {
+  position: relative;
+}
+
+.current::after {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+
+  @media screen and (min-width: 768px) {
+    bottom: -31px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    bottom: 1px;
+  }
 }
